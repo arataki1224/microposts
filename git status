@@ -1,0 +1,38 @@
+[1mdiff --git a/app/Http/Middleware/TrustProxies.php b/app/Http/Middleware/TrustProxies.php[m
+[1mindex ee5b595..d238d9a 100644[m
+[1m--- a/app/Http/Middleware/TrustProxies.php[m
+[1m+++ b/app/Http/Middleware/TrustProxies.php[m
+[36m@@ -12,7 +12,7 @@[m [mclass TrustProxies extends Middleware[m
+      *[m
+      * @var array|string[m
+      */[m
+[31m-    protected $proxies;[m
+[32m+[m[32m    protected $proxies = '*';[m
+ [m
+     /**[m
+      * The headers that should be used to detect proxies.[m
+[1mdiff --git a/app/Providers/AppServiceProvider.php b/app/Providers/AppServiceProvider.php[m
+[1mindex ee8ca5b..b761bc1 100644[m
+[1m--- a/app/Providers/AppServiceProvider.php[m
+[1m+++ b/app/Providers/AppServiceProvider.php[m
+[36m@@ -23,6 +23,6 @@[m [mclass AppServiceProvider extends ServiceProvider[m
+      */[m
+     public function boot()[m
+     {[m
+[31m-        //[m
+[32m+[m[32m        \URL::forceScheme('https');[m
+     }[m
+ }[m
+[1mdiff --git a/config/app.php b/config/app.php[m
+[1mindex 9e5b36c..cba4e07 100644[m
+[1m--- a/config/app.php[m
+[1m+++ b/config/app.php[m
+[36m@@ -67,7 +67,7 @@[m [mreturn [[m
+     |[m
+     */[m
+ [m
+[31m-    'timezone' => 'UTC',[m
+[32m+[m[32m    'timezone' => 'Asia/Tokyo',[m
+ [m
+     /*[m
+     |--------------------------------------------------------------------------[m
