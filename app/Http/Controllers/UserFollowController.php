@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class UserFollowController extends Controller
 {
     // フォローアクション　User.phpのfollowメソッドを利用

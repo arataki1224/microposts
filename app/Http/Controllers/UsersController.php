@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 class UsersController extends Controller
 {
     public function index()
@@ -32,6 +34,7 @@ class UsersController extends Controller
         // ユーザ詳細ビューでそれを表示
         return view('users.show', [
             'user' => $user,
+            'microposts' => $microposts,
         ]);
     }
     
@@ -44,7 +47,7 @@ class UsersController extends Controller
         $user->loadRelationshipCounts();
         
         // ユーザのフォロー一覧を取得
-        $followings = $user->followings()->pagenate(10);
+        $followings = $user->followings()->paginate(10);
         
         // フォロー一覧ビューでそれらを表示
         return view('users.followings', [
@@ -62,7 +65,7 @@ class UsersController extends Controller
         $user->loadRelationshipCounts();
         
         // ユーザのフォロワー一覧を取得
-        $followers = $user->followers()->pagenate(10);
+        $followers = $user->followers()->paginate(10);
         
         // フォロワー一覧ビューでそれらを表示
         return view('users.followers', [
