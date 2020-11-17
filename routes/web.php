@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'MicropostsController@index');  //上書き
+Route::get('/', 'MicropostsController@index');  //上書
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
